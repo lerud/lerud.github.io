@@ -102,6 +102,8 @@ cbar = colorbar;set(get(cbar,'ylabel'),'string','Correlation (-1 to 1)');
 ```
 ![iter](iterSpec.jpg)
 
+$$ \sin (2\pi ft) $$
+
 ```ruby
 # Ruby code with syntax highlighting
 GitHubPages::Dependencies.gems.each do |gem, version|
