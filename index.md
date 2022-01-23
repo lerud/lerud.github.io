@@ -64,7 +64,8 @@ else
     error('mdlAutocorr only takes 4 inputs')
 end
 if ~isreal(y)
-    warning('Input signal is complex; only real portion taken')
+    warning('Input signal is complex; ...
+        only real portion taken')
     y=real(y);
 end
 
@@ -103,6 +104,8 @@ cbar = colorbar;set(get(cbar,'ylabel'),'string','Correlation (-1 to 1)');
 ![iter](iterSpec.jpg)
 
 $$ \sin (2\pi ft) $$
+
+iter.mp3
 
 ```ruby
 # Ruby code with syntax highlighting
