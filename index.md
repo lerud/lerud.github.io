@@ -101,7 +101,8 @@ xlabel('Time (sec)');ylabel('Lags (ms)');
 set(gca,'YDir','normal');
 cbar = colorbar;set(get(cbar,'ylabel'),'string','Correlation (-1 to 1)');
 ```
-![iter](iterSpec.jpg)
+![testing](testing.png)
+<img src="testing.png" alt="testing" width="4000"/>
 
 $$ \sin (2\pi ft) $$
 
