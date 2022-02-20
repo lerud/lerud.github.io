@@ -59,7 +59,7 @@ zoom xon
 
 ![](basicSin.png)
 
-![](https://lerud.github.io/sounds/basicSin.mp3)
+![](sounds/basicSin.mp3)
 
 $\sin 2\pi ft$
 
