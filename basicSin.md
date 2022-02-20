@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-This is the first example testing.
+This is the first example.
 
 ```matlab
 % Some plotting parameters
