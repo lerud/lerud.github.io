@@ -3,5 +3,11 @@ description: 'Auditory perception: Stimulus design and analysis'
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-midnight
+github:
+  repository_url: https://github.com/lerud/lerud.github.io/
+  zip_url: https://github.com/lerud/lerud.github.io/archive/refs/heads/master.zip
+  tar_url: https://github.com/lerud/lerud.github.io/tarball/master
+  owner_url: https://github.com/lerud/
+  owner_name: lerud
 plugins:
   - jekyll-spaceship
