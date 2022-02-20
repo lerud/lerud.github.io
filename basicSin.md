@@ -60,3 +60,7 @@ zoom xon
 ![](basicSin.png)
 
 ![](https://lerud.github.io/sounds/basicSin.mp3)
+
+$\sin 2\pi ft$
+
+$$\sin 2\pi ft$$
