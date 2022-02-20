@@ -57,10 +57,6 @@ grid on
 zoom xon
 ```
 
-![](basicSin.png)
+![](pics/basicSin.png)
 
 ![](sounds/basicSin.mp3)
-
-$\sin 2\pi ft$
-
-$$\sin 2\pi ft$$
