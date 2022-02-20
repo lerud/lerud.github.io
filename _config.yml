@@ -3,3 +3,5 @@ description: 'Auditory perception: Stimulus design and analysis'
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-midnight
+plugins:
+  - jekyll-spaceship
