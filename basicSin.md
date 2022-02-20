@@ -59,4 +59,4 @@ zoom xon
 
 ![](basicSin.png)
 
-![](./basicSin.mp3)
+![](sounds/basicSin.mp3)
