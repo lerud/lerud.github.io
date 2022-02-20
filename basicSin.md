@@ -59,4 +59,4 @@ zoom xon
 
 ![](basicSin.png)
 
-![](sounds/basicSin.mp3?controls=1)
+![](https://lerud.github.io/sounds/basicSin.mp3)
