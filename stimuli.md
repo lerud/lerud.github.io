@@ -13,3 +13,6 @@ The [GrFNN Toolbox](https://github.com/musicdynamicslab/grfnntoolbox) is a MATLA
 - Ramping
   - [Linear](basicRamping.html)
   - [Nonlinear](basicRamping2.html)
+- Amplitude modulation
+  - [Slow](ampMod.html)
+  - [Fast](ampMod2.html)
