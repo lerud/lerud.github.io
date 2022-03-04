@@ -71,3 +71,5 @@ zoom xon
 ![](pics/noiseAm.png)
 
 ![](sounds/noiseAm.mp3)
+
+[<center>Back to stimulus home</center>](stimuli.html)

@@ -70,3 +70,5 @@ zoom xon
 ![](pics/freqAndAmpModAutomate2.png)
 
 ![](sounds/freqAndAmpModAutomate2.mp3)
+
+[<center>Back to stimulus home</center>](stimuli.html)

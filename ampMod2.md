@@ -73,3 +73,5 @@ zoom xon
 ![](pics/ampMod2.png)
 
 ![](sounds/ampMod2.mp3)
+
+[<center>Back to stimulus home</center>](stimuli.html)

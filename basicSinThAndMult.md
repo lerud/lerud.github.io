@@ -63,3 +63,5 @@ zoom xon
 ![](pics/basicSinThAndMult.png)
 
 ![](sounds/basicSinThAndMult.mp3)
+
+[<center>Back to stimulus home</center>](stimuli.html)

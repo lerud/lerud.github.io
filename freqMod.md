@@ -75,3 +75,5 @@ zoom xon
 ![](pics/freqMod.png)
 
 ![](sounds/freqMod.mp3)
+
+[<center>Back to stimulus home</center>](stimuli.html)

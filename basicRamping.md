@@ -68,3 +68,5 @@ zoom xon
 ![](pics/basicRamping.png)
 
 ![](sounds/basicRamping.mp3)
+
+[<center>Back to stimulus home</center>](stimuli.html)
