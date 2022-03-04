@@ -19,3 +19,8 @@ The [GrFNN Toolbox](https://github.com/musicdynamicslab/grfnntoolbox) is a MATLA
 - Noise carrier
   - [Amplitude modulated noise](noiseAm.html)
   - [Iterated ripple noise](noiseIter.html)
+- Frequency modulation
+  - [Slow](freqMod.html)
+  - [Fast](freqMod2.html)
+  - [Automated along with amplitude modulation](freqAndAmpModAutomate.html)
+  - [Another automated along with amplitude modulation](freqAndAmpModAutomate2.html)
