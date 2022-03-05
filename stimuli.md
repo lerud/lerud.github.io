@@ -27,4 +27,5 @@ The [GrFNN Toolbox](https://github.com/musicdynamicslab/grfnntoolbox) is a MATLA
 - Masking noise
   - [Basic](noiseMask.html)
   - [Filtered mask](noiseMaskFilt.html)
+  - [Mask all time spans](maskAll.html)
 - [Stimulus filter](filtStim.html)
