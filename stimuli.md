@@ -24,3 +24,6 @@ The [GrFNN Toolbox](https://github.com/musicdynamicslab/grfnntoolbox) is a MATLA
   - [Fast](freqMod2.html)
   - [Automated along with amplitude modulation](freqAndAmpModAutomate.html)
   - [Another automated along with amplitude modulation](freqAndAmpModAutomate2.html)
+- Masking noise
+  - [Basic](noiseMask.html)
+  - [Filtered mask](noiseMaskFilt.html)
