@@ -3,7 +3,7 @@ layout: default
 ---
 # <center>Auditory stimulus design in MATLAB</center>
 
-The [GrFNN Toolbox](https://github.com/musicdynamicslab/grfnntoolbox) is a MATLAB toolbox for modeling auditory perception and neurophysiology using nonlinear oscillators. It also has functionality for auditory stimulus design and analysis. Download it and add it to your MATLAB path, including subdirectories, to follow along with some stimulus programming, from simple to complex.
+The [GrFNN Toolbox](https://github.com/musicdynamicslab/grfnntoolbox) has functionality for auditory stimulus design and analysis. Download it and add it to your MATLAB path, including subdirectories, to follow along with some stimulus programming, from simple to complex.
 * * *
 ### Each category here will have some explanation, code, and visualization.
 - Basic
