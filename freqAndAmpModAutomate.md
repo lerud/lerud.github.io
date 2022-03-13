@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-This example has just a single time span with a single carrier wave, and automated frequency and amplitude modulation. Frequency modulation is initiated instantaneously, where amplitude modulation is initiated with a ramp, utilizing the MATLAB function `linspace()`. Contributions to the signal spectrum are evident from both the frequency and amplitude modulation.
+This example has just a single time span with a single carrier wave, and automated frequency and amplitude modulation. Frequency modulation is initiated instantaneously, whereas amplitude modulation is initiated with a ramp, utilizing the MATLAB function `linspace()`. Contributions to the signal spectrum are evident from both the frequency and amplitude modulation.
 
 ```matlab
 % Some plotting parameters
