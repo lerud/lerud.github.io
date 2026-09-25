@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Karl D. Lerud, Ph.D. | Auditory perception: Stimulus design and analysis</title>
+<meta name="generator" content="Jekyll v4.2.1">
+<meta property="og:title" content="Karl D. Lerud, Ph.D.">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Auditory perception: Stimulus design and analysis">
+<meta property="og:description" content="Auditory perception: Stimulus design and analysis">
+<meta property="og:site_name" content="Karl D. Lerud, Ph.D.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Karl D. Lerud, Ph.D.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Auditory perception: Stimulus design and analysis","headline":"Karl D. Lerud, Ph.D.","url":"/randomStim3.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="/assets/js/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="/assets/css/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup theme-color -->
+<!-- start theme color meta headers -->
+<meta name="theme-color" content="#353535">
+<meta name="msapplication-navbutton-color" content="#353535">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!-- end theme color meta headers -->
+
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <ul>
+            <li class="fork"><a href="https://github.com/lerud/lerud.github.io/">View On GitHub</a></li>
+            
+              <li class="downloads"><a href="https://github.com/lerud/lerud.github.io/archive/refs/heads/master.zip">ZIP</a></li>
+              <li class="downloads"><a href="https://github.com/lerud/lerud.github.io/tarball/master">TAR</a></li>
+              <li class="title">DOWNLOADS</li>
+            
+          </ul>
+        </nav>
+      </div>
+<!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Karl D. Lerud, Ph.D.</h1>
+          <p>Auditory perception: Stimulus design and analysis</p>
+	  <p><a href="./index.html">Home</a>
+          </p>
+<hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/lerud/">lerud</a></span>
+          <span class="credits right">Hosted on GitHub Pages — Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></span>
+        </div>
+
+        <p>Using several of the attributes that have been described together, combined with some random numbers, we can create interesting soundscapes. In these examples, several carrier frequencies, amplitude modulation, freqeuncy modulation, filtered carriers, and a filtered mask are all utilized. Since these are also randomized to a large extent, the result will not be the same if you run this code yourself.</p>
+
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">% Some plotting parameters</span>
+<span class="n">colorRatio</span><span class="o">=.</span><span class="mi">67</span><span class="p">;</span>
+<span class="n">NFFT</span><span class="o">=</span><span class="mi">8192</span><span class="o">*</span><span class="mi">4</span><span class="p">;</span>
+<span class="n">specFreqPerc</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">60</span><span class="p">];</span>
+<span class="n">specWindowLength</span><span class="o">=</span><span class="mi">3000</span><span class="p">;</span>
+<span class="n">autoFreqPerc</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">20</span><span class="p">];</span>
+<span class="n">xTimes</span><span class="o">=</span><span class="p">[</span><span class="mf">1.5</span> <span class="mf">1.6</span><span class="p">];</span>
+
+<span class="c1">% Stimulus parameters</span>
+<span class="n">tSpans</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span> <span class="mi">10</span><span class="p">];</span>
+<span class="n">fs</span><span class="o">=</span><span class="mi">44100</span><span class="p">;</span>
+<span class="n">carWaves</span><span class="o">=</span><span class="p">{</span><span class="s1">'sin'</span><span class="p">};</span>
+<span class="n">rampTime</span><span class="o">=.</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">rampExp</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="n">numHarm</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span>     <span class="c1">% number of harmonics in complex</span>
+<span class="n">f0</span><span class="o">=</span><span class="mi">50</span><span class="p">;</span>         <span class="c1">% fundamental freq</span>
+
+<span class="nb">factor</span><span class="o">=</span><span class="mi">4</span><span class="p">;</span>       <span class="c1">% factor by which to bias toward lower harmonics</span>
+
+<span class="n">work</span> <span class="o">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">numHarm</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numHarm</span>
+    <span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">randi</span><span class="p">(</span><span class="nb">floor</span><span class="p">(</span><span class="n">fs</span><span class="p">/</span><span class="n">f0</span><span class="p">/</span><span class="mi">2</span><span class="p">));</span>
+    <span class="k">while</span> <span class="o">~</span><span class="nb">isempty</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">work</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">randi</span><span class="p">(</span><span class="nb">floor</span><span class="p">(</span><span class="n">fs</span><span class="p">/</span><span class="n">f0</span><span class="p">/</span><span class="mi">2</span><span class="p">));</span>
+    <span class="k">end</span>
+    <span class="k">if</span> <span class="nb">mod</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">factor</span> <span class="o">&amp;&amp;</span> <span class="nb">isempty</span><span class="p">(</span><span class="nb">find</span><span class="p">(</span><span class="n">work</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">floor</span><span class="p">(</span><span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">)/</span><span class="nb">factor</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">floor</span><span class="p">(</span><span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">)/</span><span class="nb">factor</span><span class="p">);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">work</span> <span class="o">=</span> <span class="nb">sort</span><span class="p">(</span><span class="n">work</span><span class="p">);</span>
+<span class="n">carFreqs</span> <span class="o">=</span> <span class="n">work</span><span class="o">*</span><span class="n">f0</span><span class="p">;</span>
+
+<span class="n">carAmps</span> <span class="o">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">carFreqs</span><span class="p">));</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numHarm</span>
+    <span class="n">carAmps</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">/</span><span class="n">work</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="k">end</span>
+
+<span class="n">carThs</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="n">fmFreq</span> <span class="o">=</span> <span class="p">(</span><span class="nb">rand</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">fmAmp</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">/</span><span class="mi">100</span><span class="p">;</span>
+
+<span class="n">amFreq</span> <span class="o">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">carFreqs</span><span class="p">));</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numHarm</span>
+   <span class="n">amFreq</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">rand</span> <span class="o">+</span> <span class="o">.</span><span class="mi">2</span><span class="p">;</span> 
+<span class="k">end</span>
+
+<span class="n">amAmp</span> <span class="o">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">carFreqs</span><span class="p">));</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">numHarm</span>
+   <span class="n">amAmp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">;</span> 
+<span class="k">end</span>
+
+<span class="n">amCfreq</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="p">[</span><span class="n">bs</span><span class="p">,</span><span class="n">as</span><span class="p">]</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="nb">randi</span><span class="p">([</span><span class="mi">2</span> <span class="mi">5</span><span class="p">]),</span><span class="nb">rand</span><span class="p">/</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">aa</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">bb</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">/</span><span class="mi">4</span><span class="p">;</span>
+<span class="p">[</span><span class="n">bm</span><span class="p">,</span><span class="n">am</span><span class="p">]</span> <span class="o">=</span> <span class="n">butter</span><span class="p">(</span><span class="nb">randi</span><span class="p">([</span><span class="mi">3</span> <span class="mi">6</span><span class="p">]),[</span><span class="n">aa</span> <span class="n">aa</span><span class="o">+</span><span class="n">bb</span><span class="p">]);</span>
+
+<span class="n">maskDb</span><span class="o">=</span><span class="nb">rand</span><span class="o">*</span><span class="mi">5</span><span class="p">;</span>
+
+<span class="c1">% Create stimulus structure</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">stimulusMake</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'fcn'</span><span class="p">,</span> <span class="n">tSpans</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="p">{</span><span class="s1">'sin'</span><span class="p">},</span> <span class="n">carFreqs</span><span class="p">,</span> <span class="n">carAmps</span><span class="p">,</span> <span class="s1">'am'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'sin'</span><span class="p">},</span><span class="k">...</span>
+    <span class="n">amFreq</span><span class="p">,</span> <span class="n">amAmp</span><span class="p">,</span> <span class="n">amCfreq</span><span class="p">,</span> <span class="s1">'fm'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'cos'</span><span class="p">},</span> <span class="n">fmFreq</span><span class="p">,</span> <span class="n">fmAmp</span><span class="p">,</span> <span class="s1">'ramp'</span><span class="p">,</span> <span class="n">rampTime</span><span class="p">,</span> <span class="n">rampExp</span><span class="p">,</span> <span class="k">...</span>
+    <span class="s1">'filtstim'</span><span class="p">,</span> <span class="p">{</span><span class="n">bs</span> <span class="n">as</span><span class="p">},</span> <span class="s1">'mask'</span><span class="p">,</span> <span class="n">maskDb</span><span class="p">,</span> <span class="s1">'filtmask'</span><span class="p">,</span> <span class="p">{</span><span class="n">bm</span> <span class="n">am</span><span class="p">});</span>
+
+
+<span class="c1">% Do some visualization</span>
+<span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gcf</span><span class="p">,</span><span class="s1">'position'</span><span class="p">,[</span><span class="mi">50</span> <span class="mi">50</span> <span class="mi">1700</span> <span class="mi">1350</span><span class="p">])</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">[</span><span class="o">~</span><span class="p">,</span><span class="o">~</span><span class="p">,</span><span class="n">cbar</span><span class="p">]</span><span class="o">=</span><span class="n">mdlSpec</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">NFFT</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span><span class="n">specFreqPerc</span><span class="p">,</span><span class="n">specWindowLength</span><span class="p">);</span>
+<span class="nb">grid</span> <span class="n">on</span>
+<span class="n">temp</span><span class="o">=</span><span class="nb">get</span><span class="p">(</span><span class="n">cbar</span><span class="p">,</span><span class="s1">'limits'</span><span class="p">);</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="s1">'jet'</span><span class="p">)</span>
+<span class="n">totalRange</span><span class="o">=</span><span class="nb">diff</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="n">cutoff</span><span class="o">=</span><span class="p">(</span><span class="n">colorRatio</span><span class="o">*</span><span class="n">totalRange</span><span class="p">)</span><span class="o">+</span><span class="n">temp</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">caxis</span><span class="p">([</span><span class="n">cutoff</span> <span class="n">temp</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mdlAutocorr</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span><span class="n">autoFreqPerc</span><span class="p">);</span>
+<span class="nb">grid</span> <span class="n">on</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s1">'Total stimulus'</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s1">'Time (sec)'</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'Amplitude (a.u.)'</span><span class="p">)</span>
+<span class="nb">grid</span> <span class="n">on</span>
+<span class="nb">zoom</span> <span class="n">xon</span>
+
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">t</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">x</span><span class="p">,</span><span class="s1">'linewidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s1">'Stimulus portion'</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s1">'Time (sec)'</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s1">'Amplitude (a.u.)'</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">(</span><span class="n">xTimes</span><span class="p">)</span>
+<span class="nb">grid</span> <span class="n">on</span>
+<span class="nb">zoom</span> <span class="n">xon</span>
+</code></pre></div></div>
+
+<p><img src="pics/randomStim3.png" alt=""></p>
+
+<p><audio id="media-randomStim3.mp3" class="media" src="sounds/randomStim3.mp3" style="max-width: 600px;outline: none" controls> Your browser doesn't support HTML5 audio. Here is a <a href="sounds/randomStim3.mp3">link to download the audio</a> instead.</audio></p>
+
+<p><a href="stimuli.html"><center>Back to stimulus home</center></a></p>
+
+
+      </section>
+
+    </div>
+  </body>
+</html><!---<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>--->
